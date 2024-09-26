@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<link rel="stylesheet" href="/css/index.css">
+<!-- Liên kết đến tệp CSS -->
+<title>TRANG CHỦ</title>
+
+</head>
+<body>
+	<div th:fragment="headerFragment">
+		<section class="header">
+			<div class="Container-fluid">
+				<div class="row">
+
+					<div class="col-sm-12 ">
+
+						<div class="d-flex float-end">
+
+							<ul class="nav no-bullets">
+								<div th:if="${message}" class="alert alert-success" role="alert">
+									<p class="py-2 fs-7">
+										Bạn đã đăng ký thành công với vai trò: <span th:text="${role}"></span>
+									</p>
+								</div>
+
+								<h6 class="py-2 fs-7">Vai trò của bạn:</h6>
+								<ul class="nav">
+									<li th:each="role : ${roles}" class="nav-item"><a href="#"
+										class="nav-link text-danger" th:text="${role}"></a></li>
+								</ul>
+								
+
+
+
+								<li class="nav-item"><a href="#" class="nav-link"
+									style="color: black;">Thương Trường</a></li>
+								<li class="nav-item"><a href="#" class="nav-link"
+									style="color: black;">Trợ giúp & Câu hỏi thường gặp</a></li>
+								<li class="nav-item">
+									<!-- Button trigger modal --> <a href="#" class="nav-link"
+									style="color: black;" data-bs-toggle="modal"
+									data-bs-target="#exampleModal"> <img
+										src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg"
+										alt="Quốc kỳ Việt Nam" style="width: 22px; height: auto;">
+								</a> <!-- Modal -->
+									<div class="modal fade" id="exampleModal" tabindex="-1"
+										aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title" id="exampleModalLabel">Sở
+														Thích</h5>
+													<button type="button" class="btn-close"
+														data-bs-dismiss="modal" aria-label="Close"></button>
+												</div>
+												<div class="modal-body">
+													<p class="ms-2">Cửa hàng trong gồm:</p>
+													<div class="dropdown">
+														<button class="btn  dropdown-toggle" type="button"
+															id="dropdownMenuButton" data-bs-toggle="dropdown"
+															aria-expanded="false">Tất cả các nước</button>
+														<ul class="dropdown-menu"
+															aria-labelledby="dropdownMenuButton">
+															<li><a class="dropdown-item" href="#">Việt Nam</a></li>
+															<li><a class="dropdown-item" href="#">Nga</a></li>
+															<li><a class="dropdown-item" href="#">Malaysia</a></li>
+															<li><a class="dropdown-item" href="#">Mỹ</a></li>
+														</ul>
+													</div>
+													<p class="ms-2 py-3">Thẻ ngân hàng:</p>
+
+
+													<div class="row" style="background: #F8F8F8;">
+														<div
+															class="col-sm-2 mb-3 d-flex align-items-center justify-content-center">
+															<div class="img-container">
+																<img
+																	src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ96xFPuvND-HSzr5qPT0xHZbQhOXzsPxENQ&s"
+																	alt="Thẻ Visa" class="img-fluid">
+															</div>
+														</div>
+														<div
+															class="col-sm-2 mb-3 ms-2 d-flex align-items-center justify-content-center">
+															<div class="img-container">
+																<img
+																	src="https://9746c6837f.vws.vegacdn.vn/posts/files/the-den-la-gi.jpg"
+																	alt="Thẻ MasterCard" class="img-fluid">
+															</div>
+														</div>
+														<div
+															class="col-sm-2 mb-3 ms-2 d-flex align-items-center justify-content-center">
+															<div class="img-container">
+																<img
+																	src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQG2oQemAc1z7LPGv_hiCn3dfza6xSgupJlA&s"
+																	alt="Thẻ American Express" class="img-fluid">
+															</div>
+														</div>
+														<div
+															class="col-sm-2 mb-3 ms-2 d-flex align-items-center justify-content-center">
+															<div class="img-container">
+																<img
+																	src="https://mksmart.com.vn/wp-content/uploads/2020/06/AMex-Black-Card.png"
+																	alt="Thẻ Discover" class="img-fluid">
+															</div>
+														</div>
+														<div
+															class="col-sm-2 mb-3 ms-2 d-flex align-items-center justify-content-center">
+															<div class="img-container">
+																<img
+																	src="https://timo.vn/wp-content/uploads/emv-chip-card-300x189.jpg"
+																	alt="Thẻ JCB" class="img-fluid">
+															</div>
+														</div>
+													</div>
+													<div class="dropdown">
+														<button class="btn  dropdown-toggle" type="button"
+															id="dropdownMenuButton" data-bs-toggle="dropdown"
+															aria-expanded="false">Tiền Tệ</button>
+														<ul class="dropdown-menu"
+															aria-labelledby="dropdownMenuButton">
+															<li><a class="dropdown-item" href="#">Bảng Anh</a></li>
+															<li><a class="dropdown-item" href="#">Đô La Mỹ</a></li>
+
+														</ul>
+													</div>
+
+
+
+												</div>
+												<!-- Modal Footer -->
+												<div class="modal-footer justify-content-center">
+													<button type="button" class="btn btn-dark"
+														data-bs-dismiss="modal"
+														style="color: white; font-weight: bold;">CẬP NHẬP
+														TÙY CHỌN</button>
+												</div>
+
+
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+
+	<section class="nav">
+		<div class="Container-fluid">
+			<div class="row">
+				<div th:fragment="navFragment">
+					<div class="col-sm-12" style="background: #212121;">
+						<div class="row">
+							<div class="col-sm-4 d-flex">
+								<div class="row">
+									<div class="col-sm-4 ms-4" style="background: #212121;">
+										<a href="/index"><img src="/images/Asos-logo.png"
+											alt="Logo" class="img-fluid py-3" style="max-width: 100%;"></a>
+									</div>
+									<div class="col-sm-3 py-4 ms-4" style="background: #212121;">
+										<a href="#" class="category-button"
+											onclick="showContent('women')">WOMEN</a>
+									</div>
+									<div class="col-sm-3 py-4 text-center"
+										style="background: #686965;">
+										<a href="#" class="category-button"
+											onclick="showContent('men')">MEN</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-5">
+								<div class="input-group py-4">
+									<input type="text" class="form-control"
+										placeholder="Tìm kiếm mặt hàng và thương hiệu..."
+										aria-label="Search">
+									<button class="btn btn-primary" type="button">
+										<i class="bi bi-search"></i>
+									</button>
+								</div>
+							</div>
+							<div class="col-sm-3 py-4">
+								<div class="d-flex">
+									<div class="dropdown">
+										<a href="#" class="dropdown-toggle" id="dropdownMenuLink"
+											role="button"> <i class="bi bi-person ms-5"
+											style="font-size: 1.5rem; color: white;"></i>
+										</a>
+										<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+											<li><a class="dropdown-item" href="/login"><i
+													class="fas fa-sign-in-alt mx-2" style="font-size: 1.5em;"></i>Đăng
+													nhập</a></li>
+											<li><a class="dropdown-item" href="/register"><i
+													class="fas fa-user-plus mx-2 my-2"
+													style="font-size: 1.5em;"></i>Tham gia</a></li>
+											<li><a class="dropdown-item" href="#"><i
+													class="fas fa-user mx-2 my-2" style="font-size: 1.5em;"></i>Tài
+													khoản của tôi</a></li>
+											<li><a class="dropdown-item" href="#"><i
+													class="fas fa-box mx-2 my-2" style="font-size: 1.5em;"></i>Đơn
+													hàng của tôi</a></li>
+											<li><a class="dropdown-item" href="/logout"><i
+													class="fas fa-undo mx-2 my-2" style="font-size: 1.5em;"></i>
+													Đăng xuất</a></li>
+											<li><a class="dropdown-item" href="#"><i
+													class="fas fa-envelope mx-2	my-2" style="font-size: 1.5em;"></i>Tùy
+													chọn liên hệ</a></li>
+											<!-- Hiển thị liên kết đến trang admin nếu người dùng là admin -->
+
+											<li><a href="/admin" class="dropdown-item btn "> <i
+													class="bi bi-gear mx-2" style="font-size: 1.5em;"></i> Quản
+													lý Admin
+											</a></li>
+
+
+
+										</ul>
+									</div>
+									<a href="#"><i class="bi bi-heart ms-5"
+										style="font-size: 1.5rem; color: white;"></i></a> <a href="#"><i
+										class="bi bi-cart ms-5"
+										style="font-size: 1.5rem; color: white;"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div id="content">
+					<div id="women" class="hidden">
+
+						<!-- Add more content related to women here -->
+						<div>
+							<div class="col-sm-12" style="background: #545851;">
+								<div class="row">
+									<div class="dropdown-container">
+										<a href="#" class="dropdown-toggle" id="dropdownToggleNew"><span
+											class="ms-3" style="font-size: 15px;">Mới trong</span></a>
+										<!-- Dropdown Content -->
+										<div class="dropdown-content" id="dropdownContentNew">
+											<div class="row" style="height: 130vh;">
+												<div class="col-sm-3">
+													<h6>Sản Phẩm Mới</h6>
+													<ul class="custom-menu">
+														<li><a href="#">Xem tất cả</a></li>
+														<li><a href="#">Quần áo</a></li>
+														<li><a href="#">Đôi giầy</a></li>
+														<li><a href="#"><h6>Mới trong: Hôm nay</h6></a></li>
+														<li><a href="#"><h6>Mới trong: Bán nhanh</h6></a></li>
+														<li><a href="#"><span>Váy</span></a></li>
+														<li><a href="#"><span>Đầu trang</span></a></li>
+														<li><a href="#"><span>Đồ bơi</span></a></li>
+														<li><a href="#"><span>Quần jeans & Quần
+																	tây</span></a></li>
+														<li><a href="#"><span>Quần short</span></a></li>
+														<li><a href="#"><span>Mặt + Cơ thể</span></a></li>
+														<li><a href="#"><span>Đồ thể thao</span></a></li>
+														<li><a href="#"><span>Đồ lót</span></a></li>
+													</ul>
+												</div>
+												<div class="col-md-3">
+													<h6 class="ms-2">CỬA HÀNG MÙA HÈ</h6>
+													<ul class="custom-menu">
+														<li><a href="#"> <img src="/images/women.avif"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;"> Trang phục mùa hè
+														</a></li>
+														<hr>
+														<li><a href="#"> <img src="/images/women1.avif"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;"> Váy mùa hè
+														</a></li>
+														<hr>
+														<li><a href="#"> <img src="/images/lanh.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;"> Lanh
+														</a></li>
+														<hr>
+														<li><a href="#"> <img src="/images/phukien.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;"> Phụ kiện
+														</a></li>
+														<hr>
+														<li><a href="#"> <img src="/images/doboi.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;"> Đồ bơi
+														</a></li>
+														<hr>
+														<li><a href="#"> <img src="/images/deo.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;"> Dép xăng đan
+														</a></li>
+													</ul>
+												</div>
+												<div class="col-sm-3 ms-3">
+													<h6>GIẢM GIÁ THƯƠNG HIỆU</h6>
+													<ul class="custom-menu">
+														<li><a href="#"><img src="/images/thietke.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;">Thiết kế ASOS</a></li>
+														<hr>
+														<li><a href="#"><img src="/images/adidas.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;">Adidas</a></li>
+														<hr>
+														<li><a href="#"><img
+																src="/images/thuonghieu.webp" alt="Mô tả hình ảnh"
+																class="icon-image" style="max-width: 30px;">Thương
+																hiệu Anh</a></li>
+														<hr>
+														<li><a href="#"><img src="/images/canbang.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;">Cân bằng mới</a></li>
+														<hr>
+														<li><a href="#"><img src="/images/giaodien.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;">Giao diện mới</a></li>
+														<hr>
+														<li><a href="#"><img src="/images/phiabac.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;">Mặt phía bắc</a></li>
+													</ul>
+												</div>
+												<div class="col-sm-3 ">
+													<h6 class="">SỮA ĐỔI MỚI</h6>
+													<ul class="custom-menu">
+														<li><a href="#" class="image-container"> <img
+																src="/images/women3.avif" alt="Mô tả hình ảnh"
+																style="max-height: 300px;">
+																<div class="overlay-text ">VỪA HẠ CÁNH: VEJA</div>
+														</a></li>
+														<li><a href="#" class="image-container "> <img
+																src="/images/women4.avif" alt="Mô tả hình ảnh"
+																style="max-width: 300px;">
+																<div class="overlay-text ">VẺ NGOÀI CỦA IT-GIRL</div>
+														</a></li>
+													</ul>
+												</div>
+
+											</div>
+										</div>
+
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle" id="dropdownToggleOld">
+												<span class="ms-2" style="font-size: 15px;">Quần Áo</span>
+											</a>
+											<div class="dropdown-content" id="dropdownContentOld">
+												<div class="row" style="height: 140vh;">
+													<div class="col-sm-3">
+														<h6>MUA SẮM THEO SẢN PHẨM</h6>
+														<ul class="custom-menu">
+															<li><a href="#"><h6>Quần áo được đánh giá
+																		cao nhất</h6></a></li>
+															<li><a href="#">Mới trong</a></li>
+															<li><a href="#">Áo phông & Áo vest</a></li>
+															<li><a href="#"><h6>Mua 3+ Áo phông, Tiết
+																		kiệm 15%</h6></a></li>
+															<li><a href="#">Quần short</a></li>
+															<li><a href="#">Áo sơ mi</a></li>
+															<li><a href="#">Áo hoodie và áo nỉ</a></li>
+															<li><a href="#">Quần Jeans</a></li>
+															<li><a href="#">Đồ bơi</a></li>
+															<li><a href="#">Quần dài & quần chinos</a></li>
+															<li><a href="#">Bộ đồ & May đo</a></li>
+															<li><a href="#">Áo khoác & Áo khoác</a></li>
+															<li><a href="#">Quần Cargo</a></li>
+															<li><a href="#">Tọa độ</a></li>
+															<li><a href="#">Độc quyền tại ASOS</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3 ">
+														<ul class="py-5 custom-menu">
+															<li><a href="#">Người chạy bộ</a></li>
+															<li><a href="#">Quần đảo Jorts</a></li>
+															<li><a href="#">Áo len và áo len cardigan</a></li>
+															<li><a href="#">Cơ hội cuối cùng để mua</a></li>
+															<li><a href="#">Đồ mặc ở nhà</a></li>
+															<li><a href="#">Nhiều gói</a></li>
+															<li><a href="#">Kích thước lớn</a></li>
+															<li><a href="#">Áo thun Polo</a></li>
+															<li><a href="#">Phần thưởng</a></li>
+															<li><a href="#">Tất</a></li>
+															<li><a href="#">Đồ thể thao</a></li>
+															<li><a href="#">Cao</a></li>
+															<li><a href="#">Bộ đồ thể thao</a></li>
+															<li><a href="#">Đồ lót</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Cửa hàng vải lanh</h6>
+														<ul class="py-3 custom-menu">
+															<li><a href="#"><img src="/images/xemtatca.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Xem tất cả</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/quandai.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Quần dài</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/aosomi.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Áo sơ mi</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/quansort.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Quần short</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/bodo.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Bộ đồ</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>MUA SẮM THEO EDIT</h6>
+														<ul class="py-3 custom-menu">
+															<li><a href="#"><img src="/images/ngayle.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Ngày lễ</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/baoho.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Quần áo bảo hộ lao động</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/dutiec.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Trang phục dự tiệc</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/hanghoa.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Kiểu hàng hóa</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/quanbo.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Quần bò</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/lehoi.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Lễ hội</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle"
+												id="dropdownToggleXuhuong"> <span class="ms-2"
+												style="font-size: 15px;">Xu hướng</span>
+											</a>
+											<div class="dropdown-content" id="dropdownContentXuhuong">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6>Những mục được tìm kiếm nhiều nhất</h6>
+														<ul class="py-3 custom-menu">
+															<li><a href="#"><img src="/images/aothun.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Áo thun họa tiết</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/soc.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Sọc</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/quandao.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Quần đảo jorts</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/pcode.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Gorpcore</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+
+
+														<ul class="">
+															<li><a href="#" class="image-container"> <img
+																	src="/images/mohoi.webp" alt="Mô tả hình ảnh"
+																	style="max-height: 320px;">
+																	<div class="overlay-text">MỒI HÔI NẶNG</div>
+															</a></li>
+
+														</ul>
+
+													</div>
+													<div class="col-sm-3">
+														<ul class="">
+															<li><a href="#" class="image-container"> <img
+																	src="/images/laodong.webp" alt="Mô tả hình ảnh"
+																	style="max-height: 320px;">
+																	<div class="overlay-text" style="">BIÊN TẬP ĐỒ
+																		LAO ĐỘNG</div>
+															</a></li>
+
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<ul class="">
+															<li><a href="#" class="image-container"> <img
+																	src="/images/chuanbi.webp" alt="Mô tả hình ảnh"
+																	style="max-height: 320px;">
+																	<div class="overlay-text" style="">CHUẨN BỊ CHO
+																		MÙA HÈ</div>
+															</a></li>
+
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle"
+												id="dropdownToggleDoigiay"> <span class="ms-2"
+												style="font-size: 15px;">Đôi giày</span>
+											</a>
+											<div class="dropdown-content" id="dropdownContentDoigiay">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6>Danh mục 1</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 1</a></li>
+															<li><a href="#">Sản phẩm 2</a></li>
+															<li><a href="#">Sản phẩm 3</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 2</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 4</a></li>
+															<li><a href="#">Sản phẩm 5</a></li>
+															<li><a href="#">Sản phẩm 6</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 3</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 7</a></li>
+															<li><a href="#">Sản phẩm 8</a></li>
+															<li><a href="#">Sản phẩm 9</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 4</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 10</a></li>
+															<li><a href="#">Sản phẩm 11</a></li>
+															<li><a href="#">Sản phẩm 12</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle"
+												id="dropdownTogglePhukien"> <span class="ms-2"
+												style="font-size: 15px;">Phụ kiện</span>
+											</a>
+											<div class="dropdown-content" id="dropdownContentPhukien">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6>Danh mục 1</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 1</a></li>
+															<li><a href="#">Sản phẩm 2</a></li>
+															<li><a href="#">Sản phẩm 3</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 2</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 4</a></li>
+															<li><a href="#">Sản phẩm 5</a></li>
+															<li><a href="#">Sản phẩm 6</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 3</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 7</a></li>
+															<li><a href="#">Sản phẩm 8</a></li>
+															<li><a href="#">Sản phẩm 9</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 4</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 10</a></li>
+															<li><a href="#">Sản phẩm 11</a></li>
+															<li><a href="#">Sản phẩm 12</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle" id="dropdownToggleMaydo">
+												<span class="ms-2" style="font-size: 15px;">May đo</span>
+											</a>
+											<div class="dropdown-content" id="dropdownContentMaydo">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6>Danh mục 1</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 1</a></li>
+															<li><a href="#">Sản phẩm 2</a></li>
+															<li><a href="#">Sản phẩm 3</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 2</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 4</a></li>
+															<li><a href="#">Sản phẩm 5</a></li>
+															<li><a href="#">Sản phẩm 6</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 3</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 7</a></li>
+															<li><a href="#">Sản phẩm 8</a></li>
+															<li><a href="#">Sản phẩm 9</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 4</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 10</a></li>
+															<li><a href="#">Sản phẩm 11</a></li>
+															<li><a href="#">Sản phẩm 12</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle"
+												id="dropdownToggleNhanhieu"> <span class="ms-2"
+												style="font-size: 15px;">Nhãn hiệu</span>
+											</a>
+											<div class="dropdown-content" id="dropdownContentNhanhieu">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6>Danh mục 1</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 1</a></li>
+															<li><a href="#">Sản phẩm 2</a></li>
+															<li><a href="#">Sản phẩm 3</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 2</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 4</a></li>
+															<li><a href="#">Sản phẩm 5</a></li>
+															<li><a href="#">Sản phẩm 6</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 3</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 7</a></li>
+															<li><a href="#">Sản phẩm 8</a></li>
+															<li><a href="#">Sản phẩm 9</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 4</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 10</a></li>
+															<li><a href="#">Sản phẩm 11</a></li>
+															<li><a href="#">Sản phẩm 12</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle"
+												id="dropdownToggleThethao"> <span class="ms-2"
+												style="font-size: 15px;">Đồ thể thao</span>
+											</a>
+											<div class="dropdown-content" id="dropdownContentThethao">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6>Danh mục 1</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 1</a></li>
+															<li><a href="#">Sản phẩm 2</a></li>
+															<li><a href="#">Sản phẩm 3</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 2</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 4</a></li>
+															<li><a href="#">Sản phẩm 5</a></li>
+															<li><a href="#">Sản phẩm 6</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 3</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 7</a></li>
+															<li><a href="#">Sản phẩm 8</a></li>
+															<li><a href="#">Sản phẩm 9</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 4</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 10</a></li>
+															<li><a href="#">Sản phẩm 11</a></li>
+															<li><a href="#">Sản phẩm 12</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle"
+												id="dropdownToggleDungdau"> <span class="ms-2"
+												style="font-size: 15px;">Người đứng đầu</span>
+											</a>
+											<div class="dropdown-content" id="dropdownContentDungdau">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6>Danh mục 1</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 1</a></li>
+															<li><a href="#">Sản phẩm 2</a></li>
+															<li><a href="#">Sản phẩm 3</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 2</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 4</a></li>
+															<li><a href="#">Sản phẩm 5</a></li>
+															<li><a href="#">Sản phẩm 6</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 3</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 7</a></li>
+															<li><a href="#">Sản phẩm 8</a></li>
+															<li><a href="#">Sản phẩm 9</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 4</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 10</a></li>
+															<li><a href="#">Sản phẩm 11</a></li>
+															<li><a href="#">Sản phẩm 12</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle"
+												id="dropdownTogglThuongtruong"> <span class="ms-2"
+												style="font-size: 15px;">Thương trường</span>
+											</a>
+											<div class="dropdown-content"
+												id="dropdownContentThuongtruong">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6>Danh mục 1</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 1</a></li>
+															<li><a href="#">Sản phẩm 2</a></li>
+															<li><a href="#">Sản phẩm 3</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 2</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 4</a></li>
+															<li><a href="#">Sản phẩm 5</a></li>
+															<li><a href="#">Sản phẩm 6</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 3</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 7</a></li>
+															<li><a href="#">Sản phẩm 8</a></li>
+															<li><a href="#">Sản phẩm 9</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 4</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 10</a></li>
+															<li><a href="#">Sản phẩm 11</a></li>
+															<li><a href="#">Sản phẩm 12</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle"
+												id="dropdownToggleDoanhthu"> <span class="ms-2"
+												style="font-size: 15px;">Doanh thu</span>
+											</a>
+											<div class="dropdown-content" id="dropdownContentDoanhthu">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6>Danh mục 1</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 1</a></li>
+															<li><a href="#">Sản phẩm 2</a></li>
+															<li><a href="#">Sản phẩm 3</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 2</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 4</a></li>
+															<li><a href="#">Sản phẩm 5</a></li>
+															<li><a href="#">Sản phẩm 6</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 3</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 7</a></li>
+															<li><a href="#">Sản phẩm 8</a></li>
+															<li><a href="#">Sản phẩm 9</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 4</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 10</a></li>
+															<li><a href="#">Sản phẩm 11</a></li>
+															<li><a href="#">Sản phẩm 12</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+									</div>
+
+									<div class="col-sm-12" style="background: #00B5B8;">
+										<div class="row">
+											<div class="col-sm-2 text-center py-3">
+												<a href="#" style="text-decoration: none; color: black;"><h6>PHỤ
+														NỮ</h6></a>
+											</div>
+											<div class="col-sm-8 text-center py-3">
+												<a href="#" style="text-decoration: none; color: black;"><h6>THÊM
+														DÒNG MỚI! GIẢM GIÁ LÊN ĐẾN 70%</h6></a>
+											</div>
+											<div class="col-sm-2 text-center py-3">
+												<a href="#" style="text-decoration: none; color: black;"><h6>ĐÀN
+														ÔNG</h6></a>
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+							</div>
+							<div class="col-sm-11 ms-5 ">
+								<div class="ratio ratio-16x9">
+									<iframe
+										src="https://www.asos-video.com/video/upload/f_auto,q_auto:best/_content_HP_BANNER_DESKTOP_v2_wk50_Flash9_1440xAuto_5000K.mp4"
+										title="YouTube video" allowfullscreen></iframe>
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<div class="row">
+									<div class="col-sm-3 py-4 ">
+										<a href="#" style="text-decoration: none;"> <img
+											src="/images/nu1.jpg" alt="Mô tả ảnh" class="img-fluid"
+											style="max-height: 400px;">
+											<div class="py-3 text-center">
+												<h6 class="text-center text-dark fw-bold">
+													NHỮNG NGÀY CUỐI CÙNG <br> CỦA MÙA HÈ
+												</h6>
+												<span class="text-dark" style="color: black">Phong
+													cách nóng bỏng </span>
+											</div>
+										</a>
+									</div>
+									<div class="col-sm-3 py-4 ">
+										<a href="#" style="text-decoration: none;"> <img
+											src="/images/nu2.avif" alt="Mô tả ảnh" class="img-fluid"
+											style="max-height: 400px;">
+											<div class="py-3 text-center">
+												<h6 class="text-center text-dark fw-bold">THƯƠNG HIỆU
+													MỚI: LANEIGE</h6>
+												<span class="text-dark" style="color: black">Những
+													người đổi mới chăm sóc da </span>
+											</div>
+										</a>
+									</div>
+									<div class="col-sm-3 py-4 ">
+										<a href="#" style="text-decoration: none;"> <img
+											src="/images/nu3.avif" alt="Mô tả ảnh" class="img-fluid"
+											style="max-height: 400px;">
+											<div class="py-3 text-center">
+												<h6 class="text-center text-dark fw-bold">CÔ SELFRIDGE</h6>
+												<span class="text-dark" style="color: black">Cowboycore
+													gặp gỡ grunge </span>
+											</div>
+										</a>
+									</div>
+									<div class="col-sm-3 py-4 ">
+										<a href="#" style="text-decoration: none;"> <img
+											src="/images/nu4.avif" alt="Mô tả ảnh" class="img-fluid"
+											style="max-height: 400px;">
+											<div class="py-3 text-center">
+												<h6 class="text-center text-dark fw-bold">VẺ NGOÀI THỂ
+													THAO</h6>
+												<span class="text-dark" style="color: black">Không có
+													gì ngoài chiến thắng </span>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-12 py-3 text-center"
+								style="background-color: #BBDF32;">
+								<div class="">
+									<a href="#" style="text-decoration: none;">
+										<h6 class="py-4 text-dark fw-bold fst-italic"
+											style="font-size: 32px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);">
+											GIẢM GIÁ TỚI 30% CHO NGƯỜI CHIẾN <br>THẮNG TỦ QUẦN ÁO
+										</h6> <span class="text-dark">Chỉ trong thời gian có hạn.
+											Một số kiểu dáng được giảm giá trên trang web</span>
+									</a>
+								</div>
+							</div>
+							<div class="col-sm-12 py-5">
+								<div class="row">
+									<div class="col-sm-6 text-center">
+										<a href="#" style="text-decoration: none;"> <img
+											src="/images/nu5.webp" alt="Mô tả ảnh" class="img-fluid"
+											style="max-height: 600px;">
+											<div class="py-3 text-center ">
+												<h6 class="text-center text-dark fw-bold"
+													style="font-size: 24px;">TOPSHOP</h6>
+												<span class="text-dark  fst-italic" style="color: black">Cảm
+													giác biệt thư đầy nắng </span>
+
+											</div>
+										</a>
+										<button class="btn btn-custom">MUA SẮM THƯƠNG HIỆU</button>
+
+									</div>
+
+									<div class="col-sm-6 text-center">
+										<a href="#" style="text-decoration: none;"> <img
+											src="/images/nu6.webp" alt="Mô tả ảnh" class="img-fluid"
+											style="max-height: 600px;">
+											<div class="py-3 text-center ">
+												<h6 class="text-center text-dark fw-bold"
+													style="font-size: 24px;">KAIIA</h6>
+												<span class="text-dark  fst-italic" style="color: black">Sự
+													mới mẻ từ ngày đến đêm </span>
+
+											</div>
+										</a>
+										<button class="btn btn-custom">MUA NGAY</button>
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+					<div id="men" style="display: block;">
+
+						<!-- Add more content related to men here -->
+						<div th:fragment="menuFragment">
+							<div class="col-sm-12" style="background: #545851;">
+								<div class="row">
+									<div class="dropdown-container">
+										<a href="#" class="dropdown-toggle" id="dropdownToggleNew"><span
+											class="ms-3" style="font-size: 15px;">Mới</span></a>
+										<!-- Dropdown Content -->
+										<div class="dropdown-content" id="dropdownContentNew">
+											<div class="row" style="height: 130vh;">
+												<div class="col-sm-3">
+													<h6>Sản Phẩm Mới</h6>
+													<ul class="custom-menu">
+														<li><a href="#">Xem tất cả</a></li>
+														<li><a href="#">Quần áo</a></li>
+														<li><a href="#">Đôi giầy</a></li>
+														<li><a href="#"><h6>Mới trong: Hôm nay</h6></a></li>
+														<li><a href="#"><h6>Mới trong: Bán nhanh</h6></a></li>
+														<li><a href="#"><span>Áo phông & Áo vest</span></a></li>
+														<li><a href="#"><span>Quần jeans</span></a></li>
+														<li><a href="#"><span>Quần short</span></a></li>
+														<li><a href="#"><span>Đồ bơi</span></a></li>
+														<li><a href="#"><span>Phụ kiện</span></a></li>
+														<li><a href="#"><span>Mặt + Cơ thể</span></a></li>
+														<li><a href="#"><span>Đồ thể thao</span></a></li>
+														<li><a href="#"><span>Đồ lót</span></a></li>
+													</ul>
+												</div>
+												<div class="col-md-3">
+													<h6 class="ms-2">CỬA HÀNG MÙA HÈ</h6>
+													<ul class="custom-menu">
+														<li><a href="#"> <img src="/images/muahe.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;"> Trang phục mùa hè
+														</a></li>
+														<hr>
+														<li><a href="#"> <img src="/images/kinghi.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;"> Phù hợp với kỳ nghỉ
+														</a></li>
+														<hr>
+														<li><a href="#"> <img src="/images/lanh.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;"> Lanh
+														</a></li>
+														<hr>
+														<li><a href="#"> <img src="/images/phukien.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;"> Phụ kiện
+														</a></li>
+														<hr>
+														<li><a href="#"> <img src="/images/doboi.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;"> Đồ bơi
+														</a></li>
+														<hr>
+														<li><a href="#"> <img src="/images/deo.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;"> Dép xăng đan
+														</a></li>
+													</ul>
+												</div>
+												<div class="col-sm-3 ms-3">
+													<h6>GIẢM GIÁ THƯƠNG HIỆU</h6>
+													<ul class="custom-menu">
+														<li><a href="#"><img src="/images/thietke.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;">Thiết kế ASOS</a></li>
+														<hr>
+														<li><a href="#"><img src="/images/adidas.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;">Adidas</a></li>
+														<hr>
+														<li><a href="#"><img
+																src="/images/thuonghieu.webp" alt="Mô tả hình ảnh"
+																class="icon-image" style="max-width: 30px;">Thương
+																hiệu Anh</a></li>
+														<hr>
+														<li><a href="#"><img src="/images/canbang.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;">Cân bằng mới</a></li>
+														<hr>
+														<li><a href="#"><img src="/images/giaodien.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;">Giao diện mới</a></li>
+														<hr>
+														<li><a href="#"><img src="/images/phiabac.webp"
+																alt="Mô tả hình ảnh" class="icon-image"
+																style="max-width: 30px;">Mặt phía bắc</a></li>
+													</ul>
+												</div>
+												<div class="col-sm-3 ">
+													<h6 class="">SỮA ĐỔI MỚI</h6>
+													<ul class="custom-menu">
+														<li><a href="#" class="image-container"> <img
+																src="/images/style.jpg" alt="Mô tả hình ảnh"
+																style="max-width: 300px;">
+																<div class="overlay-text ">MỚI TRONG: MÙA HÈ</div>
+														</a></li>
+														<li><a href="#" class="image-container "> <img
+																src="/images/style2.jpg" alt="Mô tả hình ảnh"
+																style="max-width: 300px;">
+																<div class="overlay-text ">DISNEY: ASOS</div>
+														</a></li>
+													</ul>
+												</div>
+
+											</div>
+										</div>
+
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle" id="dropdownToggleOld">
+												<span class="ms-2" style="font-size: 15px;">Quần Áo</span>
+											</a>
+											<div class="dropdown-content" id="dropdownContentOld">
+												<div class="row" style="height: 140vh;">
+													<div class="col-sm-3">
+														<h6>MUA SẮM THEO SẢN PHẨM</h6>
+														<ul class="custom-menu">
+															<li><a href="#"><h6>Quần áo được đánh giá
+																		cao nhất</h6></a></li>
+															<li><a href="#">Mới trong</a></li>
+															<li><a href="#">Áo phông & Áo vest</a></li>
+															<li><a href="#"><h6>Mua 3+ Áo phông, Tiết
+																		kiệm 15%</h6></a></li>
+															<li><a href="#">Quần short</a></li>
+															<li><a href="#">Áo sơ mi</a></li>
+															<li><a href="#">Áo hoodie và áo nỉ</a></li>
+															<li><a href="#">Quần Jeans</a></li>
+															<li><a href="#">Đồ bơi</a></li>
+															<li><a href="#">Quần dài & quần chinos</a></li>
+															<li><a href="#">Bộ đồ & May đo</a></li>
+															<li><a href="#">Áo khoác & Áo khoác</a></li>
+															<li><a href="#">Quần Cargo</a></li>
+															<li><a href="#">Tọa độ</a></li>
+															<li><a href="#">Độc quyền tại ASOS</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3 ">
+														<ul class="py-5 custom-menu">
+															<li><a href="#">Người chạy bộ</a></li>
+															<li><a href="#">Quần đảo Jorts</a></li>
+															<li><a href="#">Áo len và áo len cardigan</a></li>
+															<li><a href="#">Cơ hội cuối cùng để mua</a></li>
+															<li><a href="#">Đồ mặc ở nhà</a></li>
+															<li><a href="#">Nhiều gói</a></li>
+															<li><a href="#">Kích thước lớn</a></li>
+															<li><a href="#">Áo thun Polo</a></li>
+															<li><a href="#">Phần thưởng</a></li>
+															<li><a href="#">Tất</a></li>
+															<li><a href="#">Đồ thể thao</a></li>
+															<li><a href="#">Cao</a></li>
+															<li><a href="#">Bộ đồ thể thao</a></li>
+															<li><a href="#">Đồ lót</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Cửa hàng vải lanh</h6>
+														<ul class="py-3 custom-menu">
+															<li><a href="#"><img src="/images/xemtatca.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Xem tất cả</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/quandai.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Quần dài</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/aosomi.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Áo sơ mi</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/quansort.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Quần short</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/bodo.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Bộ đồ</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>MUA SẮM THEO EDIT</h6>
+														<ul class="py-3 custom-menu">
+															<li><a href="#"><img src="/images/ngayle.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Ngày lễ</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/baoho.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Quần áo bảo hộ lao động</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/dutiec.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Trang phục dự tiệc</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/hanghoa.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Kiểu hàng hóa</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/quanbo.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Quần bò</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/lehoi.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Lễ hội</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle"
+												id="dropdownToggleXuhuong"> <span class="ms-2"
+												style="font-size: 15px;">Xu hướng</span>
+											</a>
+											<div class="dropdown-content" id="dropdownContentXuhuong">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6>Những mục được tìm kiếm nhiều nhất</h6>
+														<ul class="py-3 custom-menu">
+															<li><a href="#"><img src="/images/aothun.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Áo thun họa tiết</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/soc.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Sọc</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/quandao.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Quần đảo jorts</a></li>
+															<hr>
+															<li><a href="#"><img src="/images/pcode.webp"
+																	alt="Mô tả hình ảnh" class="icon-image"
+																	style="max-width: 30px;">Gorpcore</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+
+
+														<ul class="">
+															<li><a href="#" class="image-container"> <img
+																	src="/images/mohoi.webp" alt="Mô tả hình ảnh"
+																	style="max-height: 320px;">
+																	<div class="overlay-text">MỒI HÔI NẶNG</div>
+															</a></li>
+
+														</ul>
+
+													</div>
+													<div class="col-sm-3">
+														<ul class="">
+															<li><a href="#" class="image-container"> <img
+																	src="/images/laodong.webp" alt="Mô tả hình ảnh"
+																	style="max-height: 320px;">
+																	<div class="overlay-text" style="">BIÊN TẬP ĐỒ
+																		LAO ĐỘNG</div>
+															</a></li>
+
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<ul class="">
+															<li><a href="#" class="image-container"> <img
+																	src="/images/chuanbi.webp" alt="Mô tả hình ảnh"
+																	style="max-height: 320px;">
+																	<div class="overlay-text" style="">CHUẨN BỊ CHO
+																		MÙA HÈ</div>
+															</a></li>
+
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle"
+												id="dropdownToggleDoigiay"> <span class="ms-2"
+												style="font-size: 15px;">Đôi giày</span>
+											</a>
+											<div class="dropdown-content" id="dropdownContentDoigiay">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6>Danh mục 1</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 1</a></li>
+															<li><a href="#">Sản phẩm 2</a></li>
+															<li><a href="#">Sản phẩm 3</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 2</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 4</a></li>
+															<li><a href="#">Sản phẩm 5</a></li>
+															<li><a href="#">Sản phẩm 6</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 3</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 7</a></li>
+															<li><a href="#">Sản phẩm 8</a></li>
+															<li><a href="#">Sản phẩm 9</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 4</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 10</a></li>
+															<li><a href="#">Sản phẩm 11</a></li>
+															<li><a href="#">Sản phẩm 12</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle"
+												id="dropdownTogglePhukien"> <span class="ms-2"
+												style="font-size: 15px;">Phụ kiện</span>
+											</a>
+											<div class="dropdown-content" id="dropdownContentPhukien">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6>Danh mục 1</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 1</a></li>
+															<li><a href="#">Sản phẩm 2</a></li>
+															<li><a href="#">Sản phẩm 3</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 2</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 4</a></li>
+															<li><a href="#">Sản phẩm 5</a></li>
+															<li><a href="#">Sản phẩm 6</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 3</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 7</a></li>
+															<li><a href="#">Sản phẩm 8</a></li>
+															<li><a href="#">Sản phẩm 9</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 4</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 10</a></li>
+															<li><a href="#">Sản phẩm 11</a></li>
+															<li><a href="#">Sản phẩm 12</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle" id="dropdownToggleMaydo">
+												<span class="ms-2" style="font-size: 15px;">May đo</span>
+											</a>
+											<div class="dropdown-content" id="dropdownContentMaydo">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6>Danh mục 1</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 1</a></li>
+															<li><a href="#">Sản phẩm 2</a></li>
+															<li><a href="#">Sản phẩm 3</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 2</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 4</a></li>
+															<li><a href="#">Sản phẩm 5</a></li>
+															<li><a href="#">Sản phẩm 6</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 3</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 7</a></li>
+															<li><a href="#">Sản phẩm 8</a></li>
+															<li><a href="#">Sản phẩm 9</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 4</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 10</a></li>
+															<li><a href="#">Sản phẩm 11</a></li>
+															<li><a href="#">Sản phẩm 12</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle"
+												id="dropdownToggleNhanhieu"> <span class="ms-2"
+												style="font-size: 15px;">Nhãn hiệu</span>
+											</a>
+											<div class="dropdown-content" id="dropdownContentNhanhieu">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6>Danh mục 1</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 1</a></li>
+															<li><a href="#">Sản phẩm 2</a></li>
+															<li><a href="#">Sản phẩm 3</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 2</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 4</a></li>
+															<li><a href="#">Sản phẩm 5</a></li>
+															<li><a href="#">Sản phẩm 6</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 3</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 7</a></li>
+															<li><a href="#">Sản phẩm 8</a></li>
+															<li><a href="#">Sản phẩm 9</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 4</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 10</a></li>
+															<li><a href="#">Sản phẩm 11</a></li>
+															<li><a href="#">Sản phẩm 12</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle"
+												id="dropdownToggleThethao"> <span class="ms-2"
+												style="font-size: 15px;">Đồ thể thao</span>
+											</a>
+											<div class="dropdown-content" id="dropdownContentThethao">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6>Danh mục 1</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 1</a></li>
+															<li><a href="#">Sản phẩm 2</a></li>
+															<li><a href="#">Sản phẩm 3</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 2</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 4</a></li>
+															<li><a href="#">Sản phẩm 5</a></li>
+															<li><a href="#">Sản phẩm 6</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 3</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 7</a></li>
+															<li><a href="#">Sản phẩm 8</a></li>
+															<li><a href="#">Sản phẩm 9</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 4</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 10</a></li>
+															<li><a href="#">Sản phẩm 11</a></li>
+															<li><a href="#">Sản phẩm 12</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle"
+												id="dropdownToggleDungdau"> <span class="ms-2"
+												style="font-size: 15px;">Người đứng đầu</span>
+											</a>
+											<div class="dropdown-content" id="dropdownContentDungdau">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6>Danh mục 1</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 1</a></li>
+															<li><a href="#">Sản phẩm 2</a></li>
+															<li><a href="#">Sản phẩm 3</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 2</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 4</a></li>
+															<li><a href="#">Sản phẩm 5</a></li>
+															<li><a href="#">Sản phẩm 6</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 3</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 7</a></li>
+															<li><a href="#">Sản phẩm 8</a></li>
+															<li><a href="#">Sản phẩm 9</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 4</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 10</a></li>
+															<li><a href="#">Sản phẩm 11</a></li>
+															<li><a href="#">Sản phẩm 12</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle"
+												id="dropdownTogglThuongtruong"> <span class="ms-2"
+												style="font-size: 15px;">Thương trường</span>
+											</a>
+											<div class="dropdown-content"
+												id="dropdownContentThuongtruong">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6>Danh mục 1</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 1</a></li>
+															<li><a href="#">Sản phẩm 2</a></li>
+															<li><a href="#">Sản phẩm 3</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 2</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 4</a></li>
+															<li><a href="#">Sản phẩm 5</a></li>
+															<li><a href="#">Sản phẩm 6</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 3</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 7</a></li>
+															<li><a href="#">Sản phẩm 8</a></li>
+															<li><a href="#">Sản phẩm 9</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 4</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 10</a></li>
+															<li><a href="#">Sản phẩm 11</a></li>
+															<li><a href="#">Sản phẩm 12</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="dropdown-container">
+											<a href="#" class="dropdown-toggle"
+												id="dropdownToggleDoanhthu"> <span class="ms-2"
+												style="font-size: 15px;">Doanh thu</span>
+											</a>
+											<div class="dropdown-content" id="dropdownContentDoanhthu">
+												<div class="row">
+													<div class="col-sm-3">
+														<h6>Danh mục 1</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 1</a></li>
+															<li><a href="#">Sản phẩm 2</a></li>
+															<li><a href="#">Sản phẩm 3</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 2</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 4</a></li>
+															<li><a href="#">Sản phẩm 5</a></li>
+															<li><a href="#">Sản phẩm 6</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 3</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 7</a></li>
+															<li><a href="#">Sản phẩm 8</a></li>
+															<li><a href="#">Sản phẩm 9</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-3">
+														<h6>Danh mục 4</h6>
+														<ul>
+															<li><a href="#">Sản phẩm 10</a></li>
+															<li><a href="#">Sản phẩm 11</a></li>
+															<li><a href="#">Sản phẩm 12</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+
+
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+
+						<div th:fragment="menuuFragment">
+							<div class="col-sm-12" style="background: #00B5B8;">
+								<div class="row">
+									<div class="col-sm-2 text-center py-3">
+										<a href="#" style="text-decoration: none; color: black;"><h6>PHỤ
+												NỮ</h6></a>
+									</div>
+									<div class="col-sm-8 text-center py-3">
+										<a href="#" style="text-decoration: none; color: black;"><h6>THÊM
+												DÒNG MỚI! GIẢM GIÁ LÊN ĐẾN 70%</h6></a>
+									</div>
+									<div class="col-sm-2 text-center py-3">
+										<a href="#" style="text-decoration: none; color: black;"><h6>ĐÀN
+												ÔNG</h6></a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-11 ms-5 ">
+							<div class="ratio ratio-16x9">
+								<iframe
+									src="https://www.asos-video.com/video/upload/f_auto,q_auto:best/_content_MW_heavyweight_desktop_Flash9_2560xAuto_2500K.mp4"
+									title="YouTube video" allowfullscreen></iframe>
+							</div>
+						</div>
+						<div class="col-sm-12">
+							<div class="row">
+								<div class="col-sm-3 py-4 ">
+									<a href="/sanpham" style="text-decoration: none;"> <img
+										src="/images/index1.avif" alt="Mô tả ảnh" class="img-fluid"
+										style="max-height: 400px;">
+										<div class="py-3 text-center">
+											<h6 class="text-center text-dark fw-bold">BIÊN TẬP BỘ
+												LAO ĐỘNG</h6>
+											<span class="text-dark" style="color: black">Thiết bị
+												của bạn </span>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3 py-4 ">
+									<a href="#" style="text-decoration: none;"> <img
+										src="/images/index2.avif" alt="Mô tả ảnh" class="img-fluid"
+										style="max-height: 400px;">
+										<div class="py-3 text-center">
+											<h6 class="text-center text-dark fw-bold">NHỮNG NGÀY
+												CUỐI CÙNG MÙA HÈ</h6>
+											<span class="text-dark" style="color: black">Phong
+												cách nóng bỏng </span>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3 py-4 ">
+									<a href="#" style="text-decoration: none;"> <img
+										src="/images/index3.avif" alt="Mô tả ảnh" class="img-fluid"
+										style="max-height: 400px;">
+										<div class="py-3 text-center">
+											<h6 class="text-center text-dark fw-bold">ADIDAS
+												ORIGINAL MỚI</h6>
+											<span class="text-dark" style="color: black">Quen
+												thuộc nhưng mới mẽ </span>
+										</div>
+									</a>
+								</div>
+								<div class="col-sm-3 py-4 ">
+									<a href="#" style="text-decoration: none;"> <img
+										src="/images/index4.avif" alt="Mô tả ảnh" class="img-fluid"
+										style="max-height: 400px;">
+										<div class="py-3 text-center">
+											<h6 class="text-center text-dark fw-bold">SANG TRỌNG
+												THÂN CẤP</h6>
+											<span class="text-dark" style="color: black">Smart-casual:
+												được sắp xếp </span>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12 py-3 text-center"
+							style="background-color: #BBDF32;">
+							<div class="">
+								<a href="#" style="text-decoration: none;">
+									<h6 class="py-4 text-dark fw-bold fst-italic"
+										style="font-size: 32px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);">
+										GIẢM GIÁ TỚI 30% CHO NGƯỜI CHIẾN <br>THẮNG TỦ QUẦN ÁO
+									</h6> <span class="text-dark">Chỉ trong thời gian có hạn. Một
+										số kiểu dáng được giảm giá trên trang web</span>
+								</a>
+							</div>
+						</div>
+						<div class="col-sm-12 py-5">
+							<div class="row">
+								<div class="col-sm-6 text-center">
+									<a href="#" style="text-decoration: none;"> <img
+										src="/images/index5.webp" alt="Mô tả ảnh" class="img-fluid"
+										style="max-height: 600px;">
+										<div class="py-3 text-center ">
+											<h6 class="text-center text-dark fw-bold"
+												style="font-size: 24px;">NGƯỜI ĐẦU TRANG</h6>
+											<span class="text-dark  fst-italic" style="color: black">Những
+												mặt hàng chủ lực chống chịu theo mùa </span>
+
+										</div>
+									</a>
+									<button class="btn btn-custom">MUA NGAY</button>
+
+								</div>
+
+								<div class="col-sm-6 text-center">
+									<a href="#" style="text-decoration: none;"> <img
+										src="/images/index6.webp" alt="Mô tả ảnh" class="img-fluid"
+										style="max-height: 600px;">
+										<div class="py-3 text-center ">
+											<h6 class="text-center text-dark fw-bold"
+												style="font-size: 24px;">THƯƠNG HIỆU CẦN BIẾT</h6>
+											<span class="text-dark  fst-italic" style="color: black">New
+												Era, Ed Hardy, Aisc + nhiều hơn nữa </span>
+
+										</div>
+									</a>
+									<button class="btn btn-custom">MUA NGAY</button>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+
+
+
+
+
+				<div class="col-sm-12 text-center py-3" style="background: #F59EA0;">
+					<a href="#" class="text-decoration-none">
+						<div class="d-flex flex-column my-3">
+							<span class="my-2 text-dark fw-bold" style="font-size: 24px;">ỨNG
+								DỤNG ASOS</span> <span class="my-2 text-dark fw-bold"
+								style="font-size: 28px;">Sản phẩm yêu thích đã bán hết?</span> <span
+								class="my-2 text-dark fw-bold" style="font-size: 28px;">Nhận
+								thông báo về hàng có sẵn trên ứng dụng</span>
+						</div>
+					</a>
+					<button class="btn btn-custom" style="font-size: 24px;">TẢI
+						XUỐNG NGAY</button>
+
+				</div>
+				<div class="col-sm-12 text-center py-5">
+					<h6 class="text-dark fw-bold" style="font-size: 25px;">THƯƠNG
+						HIỆU XU HƯỚNG</h6>
+					<div class="row">
+						<div class="col-sm-2 ">
+							<a href="#"> <img alt="" src="/images/xh1.webp"
+								class="img-fuild" style="max-height: 200px;">
+							</a>
+						</div>
+						<div class="col-sm-2 ">
+							<a href="#"> <img alt="" src="/images/xu2.avif"
+								class="img-fuild" style="max-height: 200px;">
+							</a>
+						</div>
+						<div class="col-sm-2 ">
+							<a href="#"> <img alt="" src="/images/xh3.avif"
+								class="img-fuild" style="max-height: 200px;">
+							</a>
+						</div>
+						<div class="col-sm-2 ">
+							<a href="#"> <img alt="" src="/images/xh4.avif"
+								class="img-fuild" style="max-height: 200px;">
+							</a>
+						</div>
+						<div class="col-sm-2 ">
+							<a href="#"> <img alt="" src="/images/xh5.avif"
+								class="img-fuild" style="max-height: 200px;">
+							</a>
+						</div>
+						<div class="col-sm-2 ">
+							<a href="#"> <img alt="" src="/images/xh6.avif"
+								class="img-fuild" style="max-height: 200px;">
+							</a>
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="col-sm-12">
+					<div class="row">
+						<div class="col-sm-6 text-center ms-5">
+							<div class="container  my-4">
+								<a href="https://www.facebook.com" class="text-dark mx-2"
+									target="_blank"> <i class="fab fa-facebook-f ms-4"
+									style="font-size: 2em; color: #284F8F;"></i>
+								</a> <a href="https://www.instagram.com" class="text-dark mx-2"
+									target="_blank"> <i class="fab fa-instagram ms-4"
+									style="font-size: 2em; color: #FCBE85;"></i>
+								</a> <a href="https://www.snapchat.com" class="text-dark mx-2"
+									target="_blank"> <i class="fab fa-snapchat-ghost ms-4"
+									style="font-size: 2em; color: #FCEF91;"></i>
+								</a>
+							</div>
+
+						</div>
+						<div class="vr "></div>
+						<div class="col-sm-5 my-4">
+							<div class="ms-2">
+								<a href="#"> <img alt="" src="/images/visa1.avif"
+									class="img-fluid ms-3" style="max-width: 50px;">
+								</a> <a href="#"> <img alt="" src="/images/visa2.avif"
+									class="img-fluid ms-3" style="max-width: 50px;">
+								</a> <a href="#"> <img alt="" src="/images/visa3.avif"
+									class="img-fluid ms-3" style="max-width: 50px;">
+								</a> <a href="#"> <img alt="" src="/images/visa4.avif"
+									class="img-fluid ms-3" style="max-width: 50px;">
+								</a> <a href="#"> <img alt="" src="/images/visa5.avif"
+									class="img-fluid ms-3" style="max-width: 50px;">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div th:fragment="foterFragment">
+		<section class="foter">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-12 my-4" style="background: #E5E5E5;">
+						<div class="row my-5">
+							<div class="col-sm-3 ">
+								<h6 class="ms-4 ">Trợ giúp & Thông tin</h6>
+								<ul class="custom-menu list-unstyled ms-4">
+									<li class="my-2"><a href="#">Giúp đỡ</a></li>
+									<li class="my-2"><a href="#">Theo dõi đơn hàng</a></li>
+									<li class="my-2"><a href="#">Giao hàng và trả lại</a></li>
+									<li class="my-2"><a href="#">Sơ đồ trang web</a></li>
+
+
+								</ul>
+
+							</div>
+							<div class="col-sm-3">
+								<h6 class="ms-4">Giới thiệu về ASOS</h6>
+								<ul class="custom-menu list-unstyled ms-4">
+									<li class="my-2"><a href="#">Về chúng tôi</a></li>
+									<li class="my-2"><a href="#">Sự nghiệp tại ASOS</a></li>
+									<li class="my-2"><a href="#">Trách nhiệm của doanh
+											nghiệp</a></li>
+									<li class="my-2"><a href="#">Trang web nhà đầu tư</a></li>
+
+
+								</ul>
+							</div>
+							<div class="col-sm-3">
+								<h6 class="ms-4">Thêm từ ASOS</h6>
+								<ul class="custom-menu list-unstyled ms-4">
+									<li class="my-2"><a href="#">Ứng dụng di động và ASOS</a></li>
+									<li class="my-2"><a href="#">Thị trường ASOS</a></li>
+									<li class="my-2"><a href="#">Phiếu quà tặng</a></li>
+									<li class="my-2"><a href="#">Thứ sáu đen</a></li>
+									<li class="my-2"><a href="#">ASOS và Thrift+</a></li>
+									<li class="my-2"><a href="#">Khám phá Thẻ tín dụng
+											ASOS</a></li>
+								</ul>
+							</div>
+							<div class="col-sm-3">
+								<h6 class="ms-4">Mua sắm từ:</h6>
+								<ul class="custom-menu list-unstyled ms-4">
+									Bạn đang ở trong
+									<i class="fas fa-flag" style="color: #DA251D;"></i>
+									<!-- Quốc kỳ Việt Nam -->
+									<span>Việt Nam</span>
+									<span class="mx-2">|</span>
+									<a href="#" class="text-decoration-none text-primary fw-bold">THAY
+										ĐỔI</a>
+									<li class="my-2"><span>Một số trang web quốc tế của
+											chúng tôi:</span></li>
+
+								</ul>
+								<div class="container my-4 d-flex flex-wrap gap-2 ms-3">
+									<a href="#" class="text-decoration-none"> <img
+										src="https://flagcdn.com/w20/vn.png" alt="Vietnam Flag"
+										title="Vietnam" style="max-width: 30px;">
+									</a> <a href="#" class="text-decoration-none"> <img
+										src="https://flagcdn.com/w20/us.png" alt="USA Flag"
+										title="USA" style="max-width: 30px;">
+									</a> <a href="#" class="text-decoration-none"> <img
+										src="https://flagcdn.com/w20/jp.png" alt="Japan Flag"
+										title="Japan" style="max-width: 30px;">
+									</a> <a href="#" class="text-decoration-none"> <img
+										src="https://flagcdn.com/w20/fr.png" alt="France Flag"
+										title="France" style="max-width: 30px;">
+									</a> <a href="#" class="text-decoration-none"> <img
+										src="https://flagcdn.com/w20/de.png" alt="Germany Flag"
+										title="Germany" style="max-width: 30px;">
+									</a> <a href="#" class="text-decoration-none"> <img
+										src="https://flagcdn.com/w20/kr.png" alt="South Korea Flag"
+										title="South Korea" style="max-width: 30px;">
+									</a> <a href="#" class="text-decoration-none"> <img
+										src="https://flagcdn.com/w20/it.png" alt="Italy Flag"
+										title="Italy" style="max-width: 30px;">
+									</a> <a href="#" class="text-decoration-none"> <img
+										src="https://flagcdn.com/w20/ca.png" alt="Canada Flag"
+										title="Canada" style="max-width: 30px;">
+									</a> <a href="#" class="text-decoration-none"> <img
+										src="https://flagcdn.com/w20/br.png" alt="Brazil Flag"
+										title="Brazil" style="max-width: 30px;">
+									</a> <a href="#" class="text-decoration-none"> <img
+										src="https://flagcdn.com/w20/gb.png" alt="UK Flag"
+										title="United Kingdom" style="max-width: 30px;">
+									</a> <a href="#" class="text-decoration-none"> <img
+										src="https://flagcdn.com/w20/au.png" alt="Australia Flag"
+										title="Australia" style="max-width: 30px;">
+									</a> <a href="#" class="text-decoration-none"> <img
+										src="https://flagcdn.com/w20/cn.png" alt="China Flag"
+										title="China" style="max-width: 30px;">
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-12" style="background: #BEBEBE;">
+							<div class="row">
+								<div class="col-sm-6 py-3">
+									<span>© 2024 ASOS</span>
+								</div>
+								<div class="col-sm-6 py-3">
+									<ul class="custom-menu list-unstyled d-flex">
+										<li><a href="#" class="ms-3">Quyền riêng tư và Cookie</a></li>
+										|
+										<li><a href="#" class="ms-3">Điều khoản và điều kiện</a></li>
+										|
+										<li><a href="#" class="ms-3">Khả năng tiếp cận</a></li>
+
+									</ul>
+								</div>
+							</div>
+
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+	<script>
+	
+  <!-- Xử lý sự kiện nhấp vào chữ "Mới"-->
+
+  document.addEventListener('DOMContentLoaded', () => {
+	    const dropdowns = document.querySelectorAll('.dropdown-container');
+
+	    dropdowns.forEach(dropdown => {
+	        const toggle = dropdown.querySelector('.dropdown-toggle');
+	        const content = dropdown.querySelector('.dropdown-content');
+
+	        toggle.addEventListener('click', (event) => {
+	            event.preventDefault();
+
+	            // Ẩn tất cả các dropdown content khác
+	            dropdowns.forEach(d => {
+	                const otherContent = d.querySelector('.dropdown-content');
+	                if (otherContent !== content) {
+	                    otherContent.classList.remove('show');
+	                }
+	            });
+
+	            // Đặt vị trí của dropdown content hiện tại
+	            const rect = toggle.getBoundingClientRect();
+	            content.style.top = `${rect.bottom}px`; // Đặt dropdown bên dưới phần tử kích hoạt
+	            content.style.left = '0'; // Đặt dropdown bắt đầu từ bên trái màn hình
+
+	            // Chuyển đổi trạng thái của dropdown content hiện tại
+	            content.classList.toggle('show');
+	        });
+	    });
+	});
+
+
+
+    </script>
+	<script>
+    function showContent(category) {
+        // Ẩn tất cả các phần tử
+        document.getElementById('men').style.display = 'none';
+        document.getElementById('women').style.display = 'none';
+
+        // Hiển thị phần tử dựa trên danh mục
+        if (category === 'men') {
+            document.getElementById('men').style.display = 'block';
+            // Cuộn đến phần tử sau khi hiển thị
+            document.getElementById('men').scrollIntoView({ behavior: 'smooth' });
+        } else if (category === 'women') {
+            document.getElementById('women').style.display = 'block';
+            // Cuộn đến phần tử sau khi hiển thị
+            document.getElementById('women').scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+</script>
+
+
+</body>
+</html>
